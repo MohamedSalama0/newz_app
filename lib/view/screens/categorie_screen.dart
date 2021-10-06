@@ -93,6 +93,30 @@ class _CategorieScreenState extends State<CategorieScreen> {
                                         ),
                                       ),
                                     ),
+                                    Row(
+                                      children:  [
+                                        IconButton(
+                                          onPressed:()
+                                          {
+                                            SnackBar snackBar =const SnackBar(content: Text('Link Copeid'));
+                                            function.CopyLink(snapshot.data[index].url).then((value) =>
+                                                ScaffoldMessenger.of(context).showSnackBar(snackBar));
+                                          },
+                                          icon:const Icon(Icons.content_copy_rounded,color: Colors.grey,),
+                                          iconSize: 30.0,
+                                        ),
+                                        const SizedBox(width: 5.0,),
+                                        IconButton(
+                                          onPressed: ()
+                                          {
+                                            function.shareLink(snapshot.data[index].url);
+                                          },
+                                          icon:const Icon(Icons.share_rounded),
+                                          iconSize: 30.0,
+                                          color: Colors.grey,
+                                        )
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
